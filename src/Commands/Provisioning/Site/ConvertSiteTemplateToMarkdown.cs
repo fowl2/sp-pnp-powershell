@@ -1,14 +1,11 @@
-using System;
-using System.IO;
-using System.Management.Automation;
-
-using Microsoft.Graph.ExternalConnectors;
-
 using PnP.Framework.Provisioning.Providers;
 using PnP.Framework.Provisioning.Providers.Markdown;
 using PnP.PowerShell.Commands.Base;
 using PnP.PowerShell.Commands.Properties;
 using PnP.PowerShell.Commands.Utilities;
+
+using System.IO;
+using System.Management.Automation;
 
 namespace PnP.PowerShell.Commands.Provisioning.Site
 {
@@ -67,6 +64,7 @@ namespace PnP.PowerShell.Commands.Provisioning.Site
                 {
                     outputStream.Seek(0, SeekOrigin.Begin);
                     outputStream.CopyTo(fileStream);
+                    fileStream.Close();
                 }
             }
             else
